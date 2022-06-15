@@ -50,16 +50,19 @@ const Friends = createFriends(document.querySelector('#friends'), {
     handleFeedFriend: (friend) => {
 
         if (state.mushrooms.length <= 0) {     
-            return setMessage('Go hunt more mushrooms!');
+            setMessage('Go hunt more mushrooms!');
         }
+
         else if (friend.satisfied === 2) {
-            return setMessage('Your friend is full. Feed someone else!');
+            setMessage('Your friend is full. Feed someone else!');
         }
+        
         else if (friend.satisfied <= 1) {
             const mushroom = state.mushrooms[0];
             removeMushroom(mushroom);
             friend.satisfied++;
             updateFriend(friend);
+
             setMessage.innerHTML = '';
         }
 
